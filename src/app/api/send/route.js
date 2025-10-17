@@ -1,28 +1,19 @@
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+// app/api/send/route.js
+import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+export async function POST(req) {
+  const resend = new Resend(process.env.RESEND_API_KEY); // runs only at runtime
+  const body = await req.json();
 
-export async function POST(req, res) {
-  const { email, subject, message } = await req.json();
-  console.log(email, subject, message);
   try {
-    const data = await resend.emails.send({
-      from: fromEmail,
-      to: [fromEmail, email],
-      subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
-          <p>{message}</p>
-        </>
-      ),
+    const response = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: body.to,
+      subject: body.subject,
+      html: body.html,
     });
-    return NextResponse.json(data);
+    return Response.json(response);
   } catch (error) {
-    return NextResponse.json({ error });
+    return Response.json({ error }, { status: 500 });
   }
 }
