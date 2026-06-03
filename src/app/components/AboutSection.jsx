@@ -42,7 +42,7 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>Best in late</li>
-        <li>Inlove niya chrr</li>
+        <li>Student lang</li>
       </ul>
     ),
   },
