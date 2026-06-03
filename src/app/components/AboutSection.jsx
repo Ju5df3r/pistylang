@@ -14,7 +14,7 @@ const TAB_DATA = [
         <li>Next.js</li>
         <li>Typescript</li>
         <li>Php</li>
-        <li>HMTL</li>
+        <li>HTMLL</li>
         <li>SupaBase</li>
         <li>MongoDB</li>
         <li>MySql</li>
