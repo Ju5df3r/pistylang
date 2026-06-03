@@ -17,7 +17,7 @@ const projectsData = [
   {
     id: 2,
     title: "School File Management System",
-    description: "HTML | CSS | LARAVEL | MYSQL",
+    description: "HTML | CSS | LARAVEL | PHP | MYSQL",
     image: "/images/projects/project-2.jpg",
     tag: ["All", "Web"],
     gitUrl: "/",
